@@ -1,0 +1,67 @@
+.menuBar {
+  position: relative;
+}
+
+.dropdownMenu {
+  padding: 5px;
+  position: relative;
+  border-radius: 5px;
+  display: grid;
+  place-content: center;
+  background: var(--glass-medium);
+}
+
+.dropdownMenu:hover {
+  background: var(--color-hover);
+}
+
+.dropdownMenu svg {
+  stroke: var(--color-neutral);
+}
+
+.menu {
+  --positionBlock: 10px;
+  list-style: none;
+  position: absolute;
+  background: var(--glass-dark);
+  transition: 0.2s, 0.6s clip-path;
+}
+
+.leftOpenMenu {
+  --originClipX: 0%;
+  left: var(--positionBlock);
+  clip-path: circle(0% at var(--originClipX) var(--originClipY));
+}
+
+.rightOpenMenu {
+  --originClipX: 100%;
+  right: var(--positionBlock);
+  clip-path: circle(0% at var(--originClipX) var(--originClipY));
+}
+
+.bottomOpenMenu {
+  --originClipY: 0%;
+  top: calc(100% + var(--positionBlock));
+}
+
+.topOpenMenu {
+  --originClipY: 100%;
+  bottom: calc(100% + var(--positionBlock));
+}
+
+.openMenu {
+  clip-path: circle(200% at var(--originClipX) var(--originClipY));
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.menuButton {
+  padding: 5px 10px;
+  width: 100%;
+  background: none;
+}
+
+.menuButton:hover {
+  background: var(--color-hover);
+}

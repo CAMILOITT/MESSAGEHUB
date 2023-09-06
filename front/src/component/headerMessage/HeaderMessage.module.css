@@ -1,0 +1,47 @@
+.headerChat {
+  width: 100%;
+  height: min-content;
+  padding: 10px 15px;
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 0px 27px 3px var(--glass-light);
+}
+
+.informationChat {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.btnBack {
+  --size: 30px;
+  width: var(--size);
+  height: var(--size);
+  display: grid;
+  place-content: center;
+  padding: 5px;
+  border-radius: 50%;
+  display: none;
+}
+
+.btnBack svg {
+  --size: 100%;
+  width: var(--size);
+  height: var(--size);
+}
+
+.imgChat {
+  --size: 40px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+@media screen and (width <= 500px) {
+  .btnBack {
+    display: block;
+  }
+}

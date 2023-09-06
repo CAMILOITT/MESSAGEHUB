@@ -1,0 +1,22 @@
+.contextMenu {
+  border-radius: 5px;
+  display: grid;
+  gap: 5px;
+  background: var(--glass-dark);
+  width: max-content;
+  padding-block: 5px;
+  list-style: none;
+  position: absolute;
+  z-index: 9;
+  visibility: hidden;
+}
+
+.eventMenu {
+  padding: 5px 10px;
+  background: transparent;
+  transition: 0.2s background;
+}
+
+.eventMenu:hover {
+  background: var(--color-hover);
+}

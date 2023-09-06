@@ -1,0 +1,62 @@
+.informationAccount {
+  display: grid;
+  grid-template-areas: 'imgUser infoName' 'description description';
+  gap: 10px 15px;
+  width: clamp(150px, 65vw, 420px);
+}
+
+.informationAccount div:last-child {
+  grid-area: description;
+}
+
+.informationAccount div:nth-child(2) {
+  grid-area: infoName;
+}
+
+.img {
+  --size: 70px;
+  width: var(--size);
+  height: var(--size);
+  grid-area: imgUser;
+  position: relative;
+  user-select: none;
+}
+
+.imgEdit::before {
+  content: 'subir imagen';
+  opacity: 0;
+  background: black;
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  text-align: center;
+}
+
+.imgEdit:hover::before {
+  opacity: 1;
+}
+
+.img svg {
+  width: 100%;
+  height: 100%;
+}
+
+.imgAvatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+.uploadImg {
+  display: none;
+}
+
+.userDescription {
+  grid-area: description;
+}
+
+.addDescription {
+  color: var(--color-neutro-dark);
+  background: var(--color-primary);
+  padding: 5px 10px;
+}

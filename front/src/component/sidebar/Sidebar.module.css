@@ -1,0 +1,35 @@
+.sidebar {
+  padding: 15px 10px;
+  position: relative;
+  user-select: none;
+  background: var(--glass-light);
+  backdrop-filter: blur(9px) saturate(180%);
+}
+
+.sidebarClose {
+  padding: 15px 0;
+  width: 0;
+}
+
+.createChat {
+  --size: 45px;
+  width: var(--size);
+  height: var(--size);
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: var(--color-hover);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.createChat:hover {
+  background: var(--color-hover);
+}
+
+.createChat svg {
+  stroke: var(--color-neutral);
+  --size: 100%;
+  width: var(--size);
+  height: var(--size);
+}

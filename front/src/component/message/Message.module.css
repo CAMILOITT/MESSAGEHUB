@@ -1,0 +1,24 @@
+.message {
+  padding: 5px 10px;
+  width: max-content;
+  max-width: 80%;
+  display: flex;
+  gap: 15px;
+}
+
+.messageRight {
+  background: var(--color-primary);
+  color: var(--color-neutro-dark);
+  align-self: flex-end;
+  flex-direction: row-reverse;
+  border-radius: 10px 10px 0 10px;
+}
+
+.messageLeft {
+  background: var(--glass-dark);
+  border-radius: 10px 10px 10px 0;
+}
+
+.messageUser {
+  padding-top: 3px;
+}

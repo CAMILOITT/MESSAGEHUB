@@ -1,0 +1,31 @@
+.listChats {
+  list-style: none;
+}
+
+.chat {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  gap: 15px;
+  text-decoration: none;
+  color: unset;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.chatActive {
+  background: var(--glass-dark);
+}
+
+.chat:hover {
+  background: var(--glass-light);
+}
+
+.imgChat {
+  --size: 40px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  object-fit: cover;
+  pointer-events: none;
+}

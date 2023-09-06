@@ -1,0 +1,66 @@
+.formLogin {
+  --paddingParent: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  inset: var(--paddingParent);
+  transition: 0.1s clip-path, 1s;
+  translate: 0% var(--top);
+}
+
+.viewFormLogin {
+  --top: 0%;
+  clip-path: inset(0 0 0 0%);
+}
+
+.viewFormRegister {
+  --top: calc(100% + 20px);
+  clip-path: inset(0 0 250% 0);
+}
+
+.label {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.label input {
+  padding: 10px 15px;
+  border-radius: 5px;
+  max-width: 200px;
+  background: var(--glass-dark);
+  font-weight: bold;
+}
+
+.btnLogin {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: initial;
+  background: var(--color-primary);
+  color: var(--color-neutro-dark);
+}
+
+.btnLogin:disabled {
+  opacity: 0.9;
+}
+
+.changeForm {
+  background: none;
+}
+
+@media screen and (width <= 450px) {
+  .label {
+    flex-direction: column;
+    gap: 5px;
+  }
+  .formLogin {
+    justify-content: start;
+  }
+}

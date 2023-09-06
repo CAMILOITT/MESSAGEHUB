@@ -1,0 +1,41 @@
+.dialogSearch {
+  display: grid;
+  gap: 10px;
+  height: max-content;
+}
+
+.listUsers {
+  display: grid;
+  list-style: none;
+  gap: 5px;
+}
+
+.user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.user:hover {
+  background: var(--color-hover);
+}
+
+.btnAdd {
+  --size: 30px;
+  width: var(--size);
+  height: var(--size);
+  padding: 5px;
+  border-radius: 5px;
+  background: var(--color-primary);
+  display: grid;
+  place-content: center;
+}
+
+.btnAdd svg {
+  --size: 100%;
+  width: var(--size);
+  height: var(--size);
+  stroke: var(--color-neutro-dark);
+}

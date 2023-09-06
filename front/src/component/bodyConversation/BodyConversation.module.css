@@ -1,0 +1,9 @@
+.interfaceChat {
+
+  backdrop-filter: blur(10px) saturate(200%);
+  width: 100%;
+  max-height: 100vh;
+  display: grid;
+  grid-template-rows: min-content auto min-content;
+  background: var(--glass-medium);
+}

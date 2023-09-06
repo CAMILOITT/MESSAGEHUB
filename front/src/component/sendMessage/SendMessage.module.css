@@ -1,0 +1,33 @@
+.sendMessage {
+  padding: 5px 10px 15px;
+  gap: 5px;
+  display: grid;
+  grid-template-columns: auto 35px;
+}
+
+.message {
+  padding: 10px 15px;
+  border-radius: 5px;
+  width: 100%;
+  background: var(--bg) center bottom / 100vw 100vh no-repeat;
+  color: var(--color-neutro-light);
+}
+
+.message::placeholder {
+  font-weight: bold;
+}
+
+.btnMessage {
+  display: grid;
+  place-content: center;
+  border-radius: 5px;
+  padding: 5px;
+  background: var(--color-hover);
+}
+
+.btnMessage svg {
+  --size: 100%;
+  width: var(--size);
+  height: var(--size);
+  stroke: var(--color-neutral);
+}

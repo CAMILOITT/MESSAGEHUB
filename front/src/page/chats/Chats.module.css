@@ -1,0 +1,15 @@
+.interface {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: clamp(200px, 30vw, 300px) auto;
+  transition: 0.5s;
+}
+
+@media screen and (width <= 500px) {
+  .focusAside {
+    grid-template-columns: 100% 0%;
+  }
+  .focusChat {
+    grid-template-columns: 0% 100%;
+  }
+}

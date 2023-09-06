@@ -1,0 +1,57 @@
+.infoAccount {
+  width: 100%;
+}
+.infoTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btnEdit {
+  --size: 25px;
+  width: var(--size);
+  height: var(--size);
+  background: none;
+}
+
+.btnVisible {
+  display: block;
+}
+
+.btnHidden {
+  display: none;
+}
+
+.btnEdit svg {
+  --size: 100%;
+  width: var(--size);
+  height: var(--size);
+  stroke: var(--color-info-success);
+  stroke-width: 2.5px;
+}
+
+.info,
+.infoEdit {
+  position: relative;
+  outline: none;
+  transition: all 0.5s linear;
+  min-height: 1rem;
+}
+
+.info::before {
+  content: '';
+  background: var(--color-info-success);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  transition: inherit;
+}
+
+.infoEdit::before {
+  width: 0%;
+  transition: inherit;
+}
+
+

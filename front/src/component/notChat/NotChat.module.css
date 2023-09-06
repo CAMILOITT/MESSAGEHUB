@@ -1,0 +1,16 @@
+.notChat {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-content: center;
+  padding: 10px;
+  font-weight: bold;
+  gap: 20px;
+  background: var(--glass-medium);
+}
+
+@media screen and (width <= 500px) {
+  .message {
+    visibility: hidden;
+  }
+}

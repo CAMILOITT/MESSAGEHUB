@@ -1,0 +1,49 @@
+.login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  padding: 20px min(2%, 20px);
+  border-radius: 10px;
+  text-align: center;
+  background: var(--glass-light);
+}
+
+.forms {
+  position: relative;
+  overflow: hidden;
+  min-height: 240px;
+  /* height: 250px; */
+  width: min(350px, 90vw);
+}
+
+.iconApp {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  translate: 0 -50%;
+  --size: 70px;
+  width: var(--size);
+  height: var(--size);
+  z-index: 1;
+}
+
+.login svg {
+  --size: 80px;
+  position: absolute;
+  top: calc(var(--size) * -1 / 2);
+  left: 50%;
+  translate: -50% 0;
+  width: var(--size);
+  height: var(--size);
+  background: whitesmoke;
+  border-radius: 50%;
+  z-index: 1;
+  display: grid;
+}
+
+@media screen and (width <= 450px) {
+  .forms {
+    height: 300px;
+  }
+}
