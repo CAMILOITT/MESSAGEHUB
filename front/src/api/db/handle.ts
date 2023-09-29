@@ -8,6 +8,7 @@ export class Db {
 
     this.connection.onsuccess = e => {
       const db = (e.target as IDBOpenDBRequest).result
+      console.log(db)
     }
 
     this.connection.onupgradeneeded = e => {
@@ -33,9 +34,8 @@ export class Db {
   }
 
   public getSomeCollections() {
-        const db = this.connection.result
-        const transaction = db.transaction(this.nameDb, 'readonly')
-        transaction.objectStore(this.nameDb).openCursor
+    const db = this.connection.result
+    const transaction = db.transaction(this.nameDb, 'readonly')
+    transaction.objectStore(this.nameDb).openCursor
   }
-
 }

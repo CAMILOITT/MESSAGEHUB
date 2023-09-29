@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import BodyConversation from './component/bodyConversation/BodyConversation'
 import NotChat from './component/notChat/NotChat'
 import UserLogged from './component/utils/protectedRouter/UserLogged'
+import UserUnLogged from './component/utils/protectedRouter/UserUnLogged'
 import Chats from './page/chats/Chats'
 import SessionUser from './page/sessionUser/SessionUser'
-import UserUnLogged from './component/utils/protectedRouter/UserUnLogged'
 
 function App() {
   useEffect(() => {

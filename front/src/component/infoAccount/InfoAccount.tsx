@@ -1,11 +1,11 @@
-import { useRef, useState } from 'react'
-import css from './InfoAccount.module.css'
+import { useRef } from 'react'
+import ImgUser from '../../assets/icons/ImgUser'
+import { URL_API } from '../../const/env'
+import { MessageInfoApp } from '../../type/messagesApp/interface'
 import InfoAccountEdit, {
   InfoAccountEditRef,
 } from '../infoAccountEdit/InfoAccountEdit'
-import { URL_API } from '../../const/env'
-import ImgUser from '../../assets/icons/ImgUser'
-import { MessageInfoApp } from '../../type/messagesApp/interface'
+import css from './InfoAccount.module.css'
 interface InfoAccountProps {
   name: string
   description?: string
@@ -25,8 +25,6 @@ export default function InfoAccount({
   const refName = useRef<InfoAccountEditRef | null>(null)
   const refDescription = useRef<InfoAccountEditRef | null>(null)
   const refAvatarImg = useRef<HTMLImageElement | null>(null)
-
-  const [hasDescription, setHasDescription] = useState(Boolean(description))
 
   function uploadImg() {
     if (!edit) return
