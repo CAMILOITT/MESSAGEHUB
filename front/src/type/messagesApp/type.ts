@@ -1,1 +1,6 @@
-export type StatusMessageInfoApp = 'info' | 'error' | 'success' | 'warning'
+export type StatusMessageInfoApp =
+  | 'info'
+  | 'error'
+  | 'success'
+  | 'warning'
+  | 'loading'

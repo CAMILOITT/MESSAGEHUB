@@ -7,6 +7,10 @@ import {
 } from 'react'
 import { MessageInfoApp } from '../../type/messagesApp/interface'
 import css from './MessagesInfoApp.module.css'
+import LoadingIcon from '../../assets/icons/StatusFuncion/LoadingIcon'
+import SuccessIcon from '../../assets/icons/StatusFuncion/SuccessIcon'
+import ErrorIcon from '../../assets/icons/StatusFuncion/ErrorIcon'
+import InfoIcon from '../../assets/icons/StatusFuncion/InfoIcon'
 
 interface MessagesInfoAppProps {
   listMessage?: MessageInfoApp[]
@@ -35,6 +39,19 @@ const MessagesInfoApp = forwardRef<MessagesInfoAppRef, MessagesInfoAppProps>(
         SetVisibility(false)
         return
       }
+
+      if (
+        listMessage.find(message => message.status === 'loading') &&
+        listMessage.length > 1
+      ) {
+        setListMessage(prev => {
+          const newList = [...prev]
+          newList.pop()
+          return newList
+        })
+        return
+      }
+
       SetVisibility(true)
 
       if (listMessage?.length > maxMessage) {
@@ -76,7 +93,10 @@ const MessagesInfoApp = forwardRef<MessagesInfoAppRef, MessagesInfoAppProps>(
       >
         {listMessage?.map(({ message, id, status }) => (
           <li key={id} data-status={status} className={css.message}>
-            {message}
+            {status === 'loading' && <LoadingIcon />}
+            {status === 'success' && <SuccessIcon />}
+            {status === 'error' && <ErrorIcon />}
+            {status === 'info' && <InfoIcon />} {message}
           </li>
         ))}
       </ul>

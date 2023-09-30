@@ -67,6 +67,11 @@
   box-sizing: border-box;
   font-family: inherit;
 }
+
+#root {
+  overflow: hidden;
+}
+
 input,
 dialog,
 button {

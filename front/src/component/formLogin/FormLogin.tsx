@@ -52,6 +52,15 @@ export default function FormLogin({
       body: JSON.stringify(dataSend),
     }
 
+    setListMessageSession(prev => [
+      {
+        message: 'autenticando...',
+        id: crypto.randomUUID(),
+        status: 'loading',
+      },
+      ...prev,
+    ])
+
     fetch(`${URL_API}/login`, configurationFetch)
       .then(res => {
         if (!res.ok) throw new Error('credenciales incorrectas')

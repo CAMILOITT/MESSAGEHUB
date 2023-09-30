@@ -33,6 +33,15 @@ export default function FormRegister({
 
     const dataSend = { nick: userName.value, password: userPassword.value }
 
+    setListMessageSession(prev => [
+      {
+        message: 'creando usuario...',
+        id: crypto.randomUUID(),
+        status: 'loading',
+      },
+      ...prev,
+    ])
+
     fetch(`${URL_API}/register`, {
       method: 'POST',
       headers: {

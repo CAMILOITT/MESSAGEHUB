@@ -18,3 +18,14 @@
 .listMessageInfoClose {
   translate: -50% -100%;
 }
+
+.message {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  transition: 500ms;
+}
+
+.messageHidden {
+  height: 0;
+}
