@@ -1,29 +1,26 @@
+import type React from 'react'
 import { useRef } from 'react'
-import ImgUser from '../../assets/icons/ImgUser'
 import { URL_API } from '../../const/env'
-import { MessageInfoApp } from '../../type/messagesApp/interface'
-import InfoAccountEdit, {
-  InfoAccountEditRef,
-} from '../infoAccountEdit/InfoAccountEdit'
+import type { MessageInfoApp } from '../../type/messagesApp/interface'
+import Avatar from '../../ui/avatar/Avatar'
+import InfoAccountEdit from '../infoAccountEdit/InfoAccountEdit'
 import css from './InfoAccount.module.css'
+
 interface InfoAccountProps {
   name: string
   description?: string
-  img_avatar?: string
+  imgAvatar?: string
   edit: boolean
   setListMessageInfo?: React.Dispatch<React.SetStateAction<MessageInfoApp[]>>
 }
-
 export default function InfoAccount({
   name,
   description,
   edit,
-  img_avatar,
+  imgAvatar,
   setListMessageInfo,
 }: InfoAccountProps) {
   const refFile = useRef<HTMLInputElement | null>(null)
-  const refName = useRef<InfoAccountEditRef | null>(null)
-  const refDescription = useRef<InfoAccountEditRef | null>(null)
   const refAvatarImg = useRef<HTMLImageElement | null>(null)
 
   function uploadImg() {
@@ -60,8 +57,7 @@ export default function InfoAccount({
         refAvatarImg.current.src = img
       })
       .catch((error: Error) => {
-        setListMessageInfo &&
-          setListMessageInfo(prev => [
+        setListMessageInfo?.(prev => [
             ...prev,
             {
               message: `${error.message}`,
@@ -76,18 +72,13 @@ export default function InfoAccount({
     <div className={css.informationAccount}>
       <div
         className={`${css.img} ${edit ? css.imgEdit : ''}`}
-        onClick={uploadImg}
-      >
-        {!img_avatar ? (
-          <ImgUser nick={`${name}`} />
-        ) : (
-          <img
-            src={`${URL_API}/${img_avatar}`}
-            alt="user image"
-            className={css.imgAvatar}
-            ref={refAvatarImg}
-          />
-        )}
+        onClick={uploadImg}>
+        <Avatar
+          nick={name}
+          imgAvatar={`${imgAvatar}`}
+          ref={refAvatarImg}
+          className={css.imgAvatar}
+        />
         <input
           type="file"
           name=""
@@ -99,19 +90,17 @@ export default function InfoAccount({
         />
       </div>
       <InfoAccountEdit
-        ref={refName}
         title="Nombre"
         description={name}
         urlFetch="/setNick"
-        edit={edit}
+        canEdit={edit}
         setListMessageInfo={setListMessageInfo}
       />
       <InfoAccountEdit
-        ref={refDescription}
         title="Description"
         description={description}
         urlFetch="/setDescription"
-        edit={edit}
+        canEdit={edit}
         setListMessageInfo={setListMessageInfo}
       />
     </div>

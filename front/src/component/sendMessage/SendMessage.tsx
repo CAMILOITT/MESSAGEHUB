@@ -3,9 +3,9 @@ import { socket } from '../../api/sockets/sockets'
 import SendMessageIcon from '../../assets/icons/SendMessageIcon'
 import { URL_API } from '../../const/env'
 import { UserContext } from '../../context/user/User'
-import { IncomingMessage } from '../../type/messages/interface'
-import { MessageInfoApp } from '../../type/messagesApp/interface'
-import { User } from '../../type/user/interface'
+import type { IncomingMessage } from '../../type/messages/interface'
+import type { MessageInfoApp } from '../../type/messagesApp/interface'
+import type { User } from '../../type/user/interface'
 import css from './SendMessage.module.css'
 
 interface SendMessageProps {

@@ -1,10 +1,13 @@
 .infoAccount {
   width: 100%;
 }
+
 .infoTitle {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .btnEdit {
@@ -12,14 +15,6 @@
   width: var(--size);
   height: var(--size);
   background: none;
-}
-
-.btnVisible {
-  display: block;
-}
-
-.btnHidden {
-  display: none;
 }
 
 .btnEdit svg {
@@ -40,18 +35,15 @@
 
 .info::before {
   content: '';
+  transition: inherit;
   background: var(--color-info-success);
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 0%;
   height: 2px;
-  transition: inherit;
 }
 
 .infoEdit::before {
-  width: 0%;
-  transition: inherit;
+  width: 100%;
 }
-
-

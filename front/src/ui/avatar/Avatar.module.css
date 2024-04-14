@@ -1,0 +1,14 @@
+.avatar {
+  --size: 40px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.imgAvatar {
+  --size: 100%;
+  width: var(--size);
+  height: var(--size);
+  object-fit: cover;
+}

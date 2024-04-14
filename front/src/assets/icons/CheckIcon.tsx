@@ -11,9 +11,8 @@ export default function CheckIcon({}: CheckIconProps) {
       stroke="currentColor"
       fill="none"
       strokeLinejoin="round"
-      strokeLinecap="round"
-    >
-      <path d="M5 12l5 5l10 -10"></path>
+      strokeLinecap="round">
+      <path d="M5 12l5 5l10 -10" />
     </svg>
   )
 }

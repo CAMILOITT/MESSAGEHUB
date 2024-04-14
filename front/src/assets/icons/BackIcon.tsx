@@ -1,6 +1,10 @@
 interface BackIconProps {}
 
 export default function BackIcon({}: BackIconProps) {
+  function prueba(a) {
+    console.log(a)
+  }
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,10 +17,10 @@ export default function BackIcon({}: BackIconProps) {
       strokeLinecap="round"
       strokeLinejoin="round"
     >
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-      <path d="M5 12l14 0"></path>
-      <path d="M5 12l6 6"></path>
-      <path d="M5 12l6 -6"></path>
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M5 12l14 0" />
+      <path d="M5 12l6 6" />
+      <path d="M5 12l6 -6" />
     </svg>
   )
 }

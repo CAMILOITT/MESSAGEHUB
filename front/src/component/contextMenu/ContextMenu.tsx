@@ -1,5 +1,5 @@
 import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react'
-import { DropDownMenuProps } from '../../type/dropdownMenu/interface'
+import type { DropDownMenuProps } from '../../type/dropdownMenu/interface'
 import css from './ContextMenu.module.css'
 
 interface ContextMenuProps {
@@ -78,6 +78,6 @@ const ContextMenu = forwardRef<ContextMenuRef, ContextMenuProps>(
         ))}
       </ul>
     )
-  }
+  },
 )
 export default ContextMenu

@@ -4,9 +4,9 @@ import { socket } from '../../api/sockets/sockets'
 import ImgUser from '../../assets/icons/ImgUser'
 import { URL_API } from '../../const/env'
 import { UserContext } from '../../context/user/User'
-import { MessageInfoApp } from '../../type/messagesApp/interface'
-import { User } from '../../type/user/interface'
-import ContextMenu, { ContextMenuRef } from '../contextMenu/ContextMenu'
+import type { MessageInfoApp } from '../../type/messagesApp/interface'
+import type { User } from '../../type/user/interface'
+import ContextMenu, { type ContextMenuRef } from '../contextMenu/ContextMenu'
 import css from './ListChats.module.css'
 
 interface ListChatsProps {
@@ -111,8 +111,7 @@ export default function ListChats({ setListMessageInfo }: ListChatsProps) {
               onContextMenu={e => {
                 refContextMenu.current?.openMenu(e)
                 setContactsId(_id)
-              }}
-            >
+              }}>
               {!img_avatar ? (
                 <ImgUser nick={nick} />
               ) : (

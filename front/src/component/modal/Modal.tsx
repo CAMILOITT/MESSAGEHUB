@@ -1,10 +1,10 @@
 import { forwardRef, useImperativeHandle, useRef } from 'react'
 import CloseIcon from '../../assets/icons/CloseIcon'
 import css from './Modal.module.css'
+import Button from '../../ui/button/Button'
 
-interface InfoAccountProps {
+interface InfoAccountProps extends React.HTMLAttributes<HTMLDialogElement> {
   children: React.ReactNode
-  classStyle?: string
   positionBtn?: { x: number; y: number }
 }
 
@@ -14,7 +14,7 @@ export interface MethodModal {
 }
 
 const Modal = forwardRef<MethodModal, InfoAccountProps>(
-  ({ children, classStyle = '' }, ref) => {
+  ({ children, ...props }, ref) => {
     const refDialog = useRef<HTMLDialogElement | null>(null)
 
     function closeModal() {
@@ -33,14 +33,17 @@ const Modal = forwardRef<MethodModal, InfoAccountProps>(
     })
 
     return (
-      <dialog ref={refDialog} className={`${css.modal} ${classStyle}`}>
-        <button onClick={closeModal} className={css.btnClose}>
-          <CloseIcon />
-        </button>
+      <dialog ref={refDialog} className={`${css.modal} ${props.className}`}>
+        <Button
+          onClick={closeModal}
+          className={css.btnClose}
+          children={<CloseIcon />}
+          aria-label="Cerrar Modal"
+        />
         {children}
       </dialog>
     )
-  }
+  },
 )
 
 export default Modal

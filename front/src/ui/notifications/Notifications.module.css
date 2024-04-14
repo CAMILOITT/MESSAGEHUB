@@ -1,0 +1,31 @@
+.listMessageInfo {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  translate: -50% 10px;
+  list-style: none;
+  background: var(--glass-dark);
+  border-radius: 5px;
+  padding: 10px;
+  font-weight: bold;
+  transition: 0.5s;
+  text-align: center;
+}
+
+.listMessageInfoOpen {
+  translate: -50% 10px;
+}
+.listMessageInfoClose {
+  translate: -50% -100%;
+}
+
+.message {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  transition: 500ms;
+}
+
+.messageHidden {
+  height: 0;
+}

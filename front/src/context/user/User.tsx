@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { URL_API } from '../../const/env'
-import { User } from '../../type/user/interface'
+import type { User } from '../../type/user/interface'
 import {
   ContextUser,
   initValueListContact,

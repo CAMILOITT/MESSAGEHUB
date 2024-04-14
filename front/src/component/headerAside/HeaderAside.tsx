@@ -4,10 +4,10 @@ import { useNavigate } from 'react-router-dom'
 import MoreIcon from '../../assets/icons/MoreIcon'
 import SearchIcon from '../../assets/icons/SearchIcon'
 import { UserContext } from '../../context/user/User'
-import { MessageInfoApp } from '../../type/messagesApp/interface'
+import type { MessageInfoApp } from '../../type/messagesApp/interface'
 import DropDownMenu from '../dropDownMenu/DropDownMenu'
 import InfoAccount from '../infoAccount/InfoAccount'
-import Modal, { MethodModal } from '../modal/Modal'
+import Modal, { type MethodModal } from '../modal/Modal'
 import css from './HeaderAside.module.css'
 
 interface HeaderAsideProps {
@@ -39,7 +39,7 @@ export default function HeaderAside({ setListMessageInfo }: HeaderAsideProps) {
       <DropDownMenu
         listOption={[
           {
-            function: () => {
+            action: () => {
               const { documentElement } = document
 
               const theme = documentElement.getAttribute('data-theme')
@@ -55,13 +55,13 @@ export default function HeaderAside({ setListMessageInfo }: HeaderAsideProps) {
             name: 'cambiar tema',
           },
           {
-            function: () => {
+            action: () => {
               refInFoAccount.current?.openModal()
             },
             name: 'information',
           },
           {
-            function: () => {
+            action: () => {
               localStorage.removeItem('Auth')
               localStorage.removeItem('id')
               document.cookie = 'nombre=; max-age=0; path=/'
@@ -92,7 +92,7 @@ export default function HeaderAside({ setListMessageInfo }: HeaderAsideProps) {
             setListMessageInfo={setListMessageInfo}
           />
         </Modal>,
-        document.body
+        document.body,
       )}
     </div>
   )

@@ -6,8 +6,7 @@ interface InputSearchProps {
   Change?: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-export interface ComponentRef {
-}
+export interface ComponentRef {}
 
 const InputSearch = forwardRef<ComponentRef, InputSearchProps>(
   ({ Change }, ref) => {
@@ -16,9 +15,9 @@ const InputSearch = forwardRef<ComponentRef, InputSearchProps>(
     useImperativeHandle(
       ref,
       () => {
-        return {  }
+        return {}
       },
-      []
+      [],
     )
 
     return (
@@ -35,6 +34,6 @@ const InputSearch = forwardRef<ComponentRef, InputSearchProps>(
         </label>
       </>
     )
-  }
+  },
 )
 export default InputSearch

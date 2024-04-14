@@ -4,8 +4,8 @@ import { useParams } from 'react-router-dom'
 import { socket } from '../../api/sockets/sockets'
 import { URL_API } from '../../const/env'
 import { UserContext } from '../../context/user/User'
-import { IncomingMessage } from '../../type/messages/interface'
-import { MessageInfoApp } from '../../type/messagesApp/interface'
+import type { IncomingMessage } from '../../type/messages/interface'
+import type { MessageInfoApp } from '../../type/messagesApp/interface'
 import Conversation from '../conversation/Conversation'
 import HeaderMessage from '../headerMessage/HeaderMessage'
 import MessagesInfoApp from '../messagesInfoApp/MessagesInfoApp'
@@ -20,7 +20,7 @@ export default function BodyConversation({}: BodyConversationProps) {
   const { listContact: list_contact, infoUser } = useContext(UserContext)
 
   const [infoChat, setInfoChat] = useState(
-    list_contact.find(user => user._id === contactsId)
+    list_contact.find(user => user._id === contactsId),
   )
 
   useEffect(() => {
@@ -37,6 +37,7 @@ export default function BodyConversation({}: BodyConversationProps) {
       id_sender: infoUser._id,
       id_receiver: infoChat?._id,
     }
+
     const options = {
       method: 'POST',
       headers: {
@@ -45,6 +46,7 @@ export default function BodyConversation({}: BodyConversationProps) {
       },
       body: JSON.stringify(data),
     }
+
     fetch(`${URL_API}/getMessages`, options)
       .then(res => {
         if (!res.ok) throw new Error('hubo un error al obtener los mensajes')
@@ -69,7 +71,6 @@ export default function BodyConversation({}: BodyConversationProps) {
     socket.on('getMessage', newMessage => {
       setMessages(message => [newMessage, ...message])
     })
-
     return () => {
       socket.off('getMessage')
     }
@@ -84,7 +85,7 @@ export default function BodyConversation({}: BodyConversationProps) {
           maxMessage={2}
           timeWait={3000}
         />,
-        document.body
+        document.body,
       )}
       <HeaderMessage infoChat={infoChat} />
       <Conversation messages={messages} />

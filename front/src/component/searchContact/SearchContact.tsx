@@ -3,8 +3,8 @@ import { socket } from '../../api/sockets/sockets'
 import SendMessageIcon from '../../assets/icons/SendMessageIcon'
 import { URL_API } from '../../const/env'
 import { UserContext } from '../../context/user/User'
-import { MessageInfoApp } from '../../type/messagesApp/interface'
-import { User } from '../../type/user/interface'
+import type { MessageInfoApp } from '../../type/messagesApp/interface'
+import type { User } from '../../type/user/interface'
 import InputSearch from '../inputSearch/InputSearch'
 import css from './SearchContact.module.css'
 
@@ -12,7 +12,9 @@ interface SearchContactProps {
   setListMessageInfo: React.Dispatch<React.SetStateAction<MessageInfoApp[]>>
 }
 
-export default function SearchContact({ setListMessageInfo }: SearchContactProps) {
+export default function SearchContact({
+  setListMessageInfo,
+}: SearchContactProps) {
   const [listUsers, setListUsers] = useState<User[]>([])
 
   const { infoUser, setListContact } = useContext(UserContext)
@@ -105,8 +107,7 @@ export default function SearchContact({ setListMessageInfo }: SearchContactProps
               onClick={() => {
                 addContact(user._id)
               }}
-              className={css.btnAdd}
-            >
+              className={css.btnAdd}>
               <SendMessageIcon />
             </button>
           </li>

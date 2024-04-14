@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import css from './DropDownMenu.module.css'
+import Button from '../../ui/button/Button'
 
 interface DropDownMenuProps {
-  listOption: { function: () => void; name: string }[]
+  listOption: { action: () => void; name: string }[]
   direction: { x: 'left' | 'right'; y: 'top' | 'bottom' }
   icon: JSX.Element
   classStyle?: string
@@ -17,14 +18,10 @@ export default function DropDownMenu({
   const [openMenu, setOpenMenu] = useState(false)
 
   const refDownMenu = useRef<HTMLUListElement | null>(null)
-
   const refBtn = useRef<HTMLButtonElement | null>(null)
 
   function closeDownMenu(e: MouseEvent) {
     const target = e.target as HTMLElement
-    refDownMenu.current?.contains(target)
-    refBtn.current?.contains(target)
-
     if (
       !refDownMenu.current?.contains(target) &&
       !refBtn.current?.contains(target)
@@ -37,30 +34,35 @@ export default function DropDownMenu({
     return () => {
       window.removeEventListener('click', closeDownMenu)
     }
-  })
+  }, [])
 
   return (
     <div className={`${css.menuBar} ${classStyle}`}>
-      <button
+      <Button
         ref={refBtn}
         className={css.dropdownMenu}
         onClick={() => {
-          setOpenMenu(true)
+          setOpenMenu(open => !open)
         }}
-      >
-        {icon}
-      </button>
+        children={icon}
+        aria-haspopup="true"
+        aria-label="Abrir Menú"
+      />
       <ul
         ref={refDownMenu}
-        className={`${css.menu} ${openMenu && css.openMenu} ${
+        className={`${css.menu} ${
           direction.x === 'left' ? css.leftOpenMenu : css.rightOpenMenu
-        } ${direction.y === 'bottom' ? css.bottomOpenMenu : css.topOpenMenu}`}
-      >
+        } ${direction.y === 'bottom' ? css.bottomOpenMenu : css.topOpenMenu} ${
+          openMenu ? css.openMenu : ''
+        }`}
+        aria-expanded={openMenu}>
         {listOption.map((option, key) => (
           <li key={key}>
-            <button onClick={option.function} className={css.menuButton}>
-              {option.name}
-            </button>
+            <Button
+              onClick={option.action}
+              className={css.menuButton}
+              children={option.name}
+            />
           </li>
         ))}
       </ul>

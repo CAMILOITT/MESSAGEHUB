@@ -1,16 +1,10 @@
-import {
-  forwardRef,
-  useEffect,
-  useImperativeHandle,
-  useRef,
-  useState,
-} from 'react'
-import { MessageInfoApp } from '../../type/messagesApp/interface'
+import { forwardRef, useEffect, useState } from 'react'
+import ErrorIcon from '../../assets/icons/StatusFunction/ErrorIcon'
+import InfoIcon from '../../assets/icons/StatusFunction/InfoIcon'
+import LoadingIcon from '../../assets/icons/StatusFunction/LoadingIcon'
+import SuccessIcon from '../../assets/icons/StatusFunction/SuccessIcon'
+import type { MessageInfoApp } from '../../type/messagesApp/interface'
 import css from './MessagesInfoApp.module.css'
-import LoadingIcon from '../../assets/icons/StatusFuncion/LoadingIcon'
-import SuccessIcon from '../../assets/icons/StatusFuncion/SuccessIcon'
-import ErrorIcon from '../../assets/icons/StatusFuncion/ErrorIcon'
-import InfoIcon from '../../assets/icons/StatusFuncion/InfoIcon'
 
 interface MessagesInfoAppProps {
   listMessage?: MessageInfoApp[]
@@ -19,52 +13,45 @@ interface MessagesInfoAppProps {
   maxMessage?: number
 }
 
+const ICONS_STATUS = {
+  loading: <LoadingIcon />,
+  success: <SuccessIcon />,
+  warning: <ErrorIcon />,
+  error: <ErrorIcon />,
+  info: <InfoIcon />,
+}
+
 export interface MessagesInfoAppRef {}
 
-const MessagesInfoApp = forwardRef<MessagesInfoAppRef, MessagesInfoAppProps>(
-  ({ listMessage, setListMessage, timeWait = 3000, maxMessage = 5 }, ref) => {
-    const ListMessage = useRef<HTMLUListElement | null>(null)
-
+const MessagesInfoApp = forwardRef<HTMLUListElement, MessagesInfoAppProps>(
+  (
+    { listMessage, setListMessage, timeWait = 3000, maxMessage = 5 },
+    RefList,
+  ) => {
     const [visibility, SetVisibility] = useState(false)
-    useImperativeHandle(
-      ref,
-      () => {
-        return {}
-      },
-      []
-    )
 
     useEffect(() => {
-      if (!listMessage?.length || !setListMessage) {
-        SetVisibility(false)
-        return
-      }
+      const listLength = listMessage?.length
+      console.log(listLength)
 
-      if (
-        listMessage.find(message => message.status === 'loading') &&
-        listMessage.length > 1
-      ) {
-        setListMessage(prev => {
-          const newList = [...prev]
-          newList.pop()
-          return newList
-        })
+      if (!listLength || !setListMessage) {
+        SetVisibility(false)
         return
       }
 
       SetVisibility(true)
 
-      if (listMessage?.length > maxMessage) {
+      if (listLength > maxMessage) {
         setListMessage(prev => {
           const newList = [...prev]
-          newList.pop()
+          newList.shift()
           return newList
         })
       }
 
       let idHiddenMessages: NodeJS.Timeout
 
-      if (listMessage?.length < 2) {
+      if (listLength < 2) {
         idHiddenMessages = setTimeout(() => {
           SetVisibility(false)
         }, timeWait / 1.25)
@@ -73,7 +60,7 @@ const MessagesInfoApp = forwardRef<MessagesInfoAppRef, MessagesInfoAppProps>(
       const idDeleteItemArr = setTimeout(() => {
         setListMessage(prev => {
           const newList = [...prev]
-          newList.pop()
+          newList.shift()
           return newList
         })
       }, timeWait)
@@ -86,21 +73,21 @@ const MessagesInfoApp = forwardRef<MessagesInfoAppRef, MessagesInfoAppProps>(
 
     return (
       <ul
-        ref={ListMessage}
+        ref={RefList}
         className={`${css.listMessageInfo} ${
           visibility ? css.listMessageInfoOpen : css.listMessageInfoClose
-        }`}
-      >
+        }`}>
         {listMessage?.map(({ message, id, status }) => (
-          <li key={id} data-status={status} className={css.message}>
-            {status === 'loading' && <LoadingIcon />}
-            {status === 'success' && <SuccessIcon />}
-            {status === 'error' && <ErrorIcon />}
-            {status === 'info' && <InfoIcon />} {message}
+          <li
+            key={id}
+            data-status={status}
+            className={css.message}>
+            {ICONS_STATUS[status]} {message}
           </li>
         ))}
       </ul>
     )
-  }
+  },
 )
+
 export default MessagesInfoApp

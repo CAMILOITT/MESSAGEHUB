@@ -5,8 +5,8 @@ export default function AppIcon({}: AppIconProps) {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       id="Capa_2"
-      viewBox="0 0 38.64 38.64"
-    >
+      viewBox="0 0 38.64 38.64">
+      <title>AppIcon</title>
       <defs>
         <style>
           {

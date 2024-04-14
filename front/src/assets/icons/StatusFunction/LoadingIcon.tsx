@@ -18,8 +18,7 @@ export default function LoadingIcon({
       stroke="currentColor"
       fill="none"
       stroke-linecap="round"
-      stroke-linejoin="round"
-    >
+      stroke-linejoin="round">
       <defs>
         <style>
           {
@@ -27,9 +26,9 @@ export default function LoadingIcon({
           }
         </style>
       </defs>
-      <path d="M12 6l0 -3"></path>
-      <path d="M6 12l-3 0"></path>
-      <path d="M7.75 7.75l-2.15 -2.15"></path>
+      <path d="M12 6l0 -3" />
+      <path d="M6 12l-3 0" />
+      <path d="M7.75 7.75l-2.15 -2.15" />
     </svg>
   )
 }

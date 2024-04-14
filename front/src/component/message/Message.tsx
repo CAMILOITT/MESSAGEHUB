@@ -14,8 +14,7 @@ export default function Message({ children, sender }: MessageProps) {
     <li
       className={`${
         infoUser._id === sender ? css.messageRight : css.messageLeft
-      } ${css.message}`}
-    >
+      } ${css.message}`}>
       <p className={css.messageUser}>{children}</p>
     </li>
   )

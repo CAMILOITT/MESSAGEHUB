@@ -14,6 +14,9 @@ function App() {
       ? 'dark'
       : 'light'
     document.documentElement.setAttribute('data-theme', systemColorScheme)
+    // document
+    //   .querySelector('html')
+    //   ?.setAttribute('data-theme', systemColorScheme)
   }, [])
 
   return (

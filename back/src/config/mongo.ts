@@ -6,4 +6,3 @@ async function dbConnect() {
 }
 
 export default dbConnect
-;('https://messagehub-back-wer7-dev.fl0.io/')

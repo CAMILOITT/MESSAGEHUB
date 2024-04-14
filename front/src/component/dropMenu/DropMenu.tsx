@@ -18,7 +18,7 @@ const DropMenu = forwardRef<ComponentRef, DropMenuProps>(
       () => {
         return {}
       },
-      []
+      [],
     )
 
     return (
@@ -30,6 +30,6 @@ const DropMenu = forwardRef<ComponentRef, DropMenuProps>(
         ))}
       </ul>
     )
-  }
+  },
 )
 export default DropMenu

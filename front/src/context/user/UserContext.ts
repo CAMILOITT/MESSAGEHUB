@@ -1,4 +1,4 @@
-import { User } from '../../type/user/interface'
+import type { User } from '../../type/user/interface'
 
 export const initialValueUser: User = {
   _id: localStorage.getItem('id') || '',

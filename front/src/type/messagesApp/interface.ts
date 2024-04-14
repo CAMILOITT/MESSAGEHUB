@@ -1,4 +1,4 @@
-import { StatusMessageInfoApp } from './type'
+import type { StatusMessageInfoApp } from './type'
 
 export interface MessageInfoApp {
   message: string

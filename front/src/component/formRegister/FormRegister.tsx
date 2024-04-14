@@ -1,6 +1,6 @@
 import { URL_API } from '../../const/env'
-import { SwitchForm } from '../../type/form/type'
-import { MessageInfoApp } from '../../type/messagesApp/interface'
+import type { SwitchForm } from '../../type/form/type'
+import type { MessageInfoApp } from '../../type/messagesApp/interface'
 import css from './FormRegister.module.css'
 
 interface FormRegisterProps {
@@ -80,8 +80,7 @@ export default function FormRegister({
       onSubmit={informationLoginUser}
       className={`${css.formRegister} ${
         statusSession === 'register' ? css.viewFormRegister : css.viewFormLogin
-      } `}
-    >
+      } `}>
       <h2>Registrarse</h2>
       <label className={css.label}>
         Nombre:
@@ -105,8 +104,7 @@ export default function FormRegister({
       <button
         type="button"
         onClick={() => setStatusSession('login')}
-        className={css.changeForm}
-      >
+        className={css.changeForm}>
         iniciar con una cuenta
       </button>
     </form>

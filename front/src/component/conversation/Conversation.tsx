@@ -1,4 +1,4 @@
-import { IncomingMessage } from '../../type/messages/interface'
+import type { IncomingMessage } from '../../type/messages/interface'
 import Message from '../message/Message'
 import css from './Conversation.module.css'
 

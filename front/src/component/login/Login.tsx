@@ -5,8 +5,8 @@ import FormRegister from '../formRegister/FormRegister'
 import MessagesInfoApp from '../messagesInfoApp/MessagesInfoApp'
 import css from './Login.module.css'
 import { createPortal } from 'react-dom'
-import { SwitchForm } from '../../type/form/type'
-import { MessageInfoApp } from '../../type/messagesApp/interface'
+import type { SwitchForm } from '../../type/form/type'
+import type { MessageInfoApp } from '../../type/messagesApp/interface'
 interface LoginProps {}
 
 export default function Login({}: LoginProps) {
@@ -24,7 +24,7 @@ export default function Login({}: LoginProps) {
           setListMessage={setListMessageSession}
           maxMessage={3}
         />,
-        document.body
+        document.body,
       )}
 
       <AppIcon />

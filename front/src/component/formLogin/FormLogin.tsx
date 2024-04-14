@@ -2,9 +2,9 @@ import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { URL_API } from '../../const/env'
 import { UserContext } from '../../context/user/User'
-import { SwitchForm } from '../../type/form/type'
-import { MessageInfoApp } from '../../type/messagesApp/interface'
-import { InfoUser } from '../../type/user/interface'
+import type { SwitchForm } from '../../type/form/type'
+import type { MessageInfoApp } from '../../type/messagesApp/interface'
+import type { InfoUser } from '../../type/user/interface'
 import css from './FormLogin.module.css'
 
 interface FormLoginProps {
@@ -88,7 +88,7 @@ export default function FormLogin({
 
           navigate('/')
           setInfoUser(data.data)
-        }
+        },
       )
       .catch((err: Error) => {
         setListMessageSession(prev => [
@@ -107,8 +107,7 @@ export default function FormLogin({
       className={`${css.formLogin} ${
         statusSession === 'login' ? css.viewFormLogin : css.viewFormRegister
       } `}
-      onSubmit={informationLoginUser}
-    >
+      onSubmit={informationLoginUser}>
       <h2>Iniciar session</h2>
       <label className={css.label}>
         Nombre:
@@ -128,12 +127,13 @@ export default function FormLogin({
           placeholder="Contraseña"
         />
       </label>
-      <button className={css.btnLogin}>Ingresar</button>
+      <button className={css.btnLogin} type="submit">
+        Ingresar
+      </button>
       <button
         type="button"
         onClick={() => setStatusSession('register')}
-        className={css.changeForm}
-      >
+        className={css.changeForm}>
         crear una cuenta
       </button>
     </form>
