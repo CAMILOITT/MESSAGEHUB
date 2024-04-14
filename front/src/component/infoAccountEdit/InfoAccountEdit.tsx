@@ -28,13 +28,8 @@ export default function InfoAccountEdit({
 
   function editDescription() {
     setEdit(true)
-    // if (!refInFo?.current) return
-    // refInFo.current.focus()
-    // refInFo.current.onfocus = () => {
-    //   refInFo.current?.focus()
-    // }
   }
-  //  c
+
   function getValue() {
     const pEdit = refInFo?.current
     if (!pEdit) return
